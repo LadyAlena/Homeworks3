@@ -10,10 +10,6 @@ public:
 		this->num1 = num1;
 		this->num2 = num2;
 	}
-	Calculator() {
-		num1 = 0.0;
-		num2 = 0.0;
-	}
 
 	double add() {
 		return num1 + num2;
