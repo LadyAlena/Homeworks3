@@ -1,10 +1,11 @@
 ﻿#include <iostream>
 
 class Calculator {
-public:
+private:
 	double num1;
 	double num2;
 
+public:
 	Calculator(double num1, double num2) {
 		this->num1 = num1;
 		this->num2 = num2;
@@ -63,24 +64,29 @@ int main(int argc, char** argv) {
 
 	setlocale(LC_ALL, "ru");
 
-	Calculator calc;
+	double num1 = 0.0;
+	double num2 = 0.0;
 
 	do {
 		std::cout << "Введите num1: ";
-		std::cin >> calc.num1;
+		std::cin >> num1;
 
 		std::cout << "Введите num2: ";
-		std::cin >> calc.num2;
+		std::cin >> num2;
 
-		if (!(calc.set_num1(calc.num1) && calc.set_num2(calc.num2))) {
+		Calculator calc(num1, num2);
+
+		if (!(num1 && num2)) {
 			std::cout << "Неверный ввод!" << std::endl;
-			if (!calc.set_num1(calc.num1)) {
+			if (!num1) {
 				std::cout << "Введите num1: ";
-				std::cin >> calc.num1;
+				std::cin >> num1;
+				calc.set_num1(num1);
 			}
-			if (!calc.set_num2(calc.num2)) {
+			if (!num2) {
 				std::cout << "Введите num2: ";
-				std::cin >> calc.num2;
+				std::cin >> num2;
+				calc.set_num2(num2);
 			}
 		}
 		
